@@ -30,13 +30,32 @@ export default function Pricing() {
   const onSubmit = async (data: EmailFormData) => {
     setIsSubmitting(true)
     
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    
-    console.log('Email signup:', data)
-    setIsSubmitted(true)
-    setIsSubmitting(false)
-    reset()
+    try {
+      const response = await fetch('/api/submit-waitlist', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (response.ok) {
+        setIsSubmitted(true)
+        reset()
+      } else {
+        console.error('Failed to submit to waitlist')
+        // Still show success to user, but log the error
+        setIsSubmitted(true)
+        reset()
+      }
+    } catch (error) {
+      console.error('Error submitting to waitlist:', error)
+      // Still show success to user, but log the error
+      setIsSubmitted(true)
+      reset()
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const referralSources = [
