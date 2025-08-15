@@ -15,39 +15,24 @@ export async function POST(request: NextRequest) {
     // Get current timestamp
     const timestamp = new Date().toISOString()
 
-    // Google Apps Script Web App URL - you'll need to replace this with your actual URL
-    const GOOGLE_SCRIPT_URL = process.env.GOOGLE_SCRIPT_URL
-
-    if (!GOOGLE_SCRIPT_URL) {
-      console.error('Google Script URL not configured')
-      // For now, just log the data and return success
-      console.log('Waitlist signup:', { email, referralSource, timestamp })
-      return NextResponse.json({ success: true })
+    // Create entry
+    const newEntry = {
+      email,
+      referralSource: referralSource || 'Not specified',
+      timestamp,
+      id: Date.now().toString()
     }
 
-    // Send data to Google Sheets via Google Apps Script
-    console.log('Attempting to submit to Google Sheets:', GOOGLE_SCRIPT_URL)
-    const response = await fetch(GOOGLE_SCRIPT_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email,
-        referralSource: referralSource || 'Not specified',
-        timestamp,
-      }),
+    // Log to console (viewable in Vercel function logs)
+    console.log('🎉 NEW WAITLIST SIGNUP:', JSON.stringify(newEntry, null, 2))
+
+    // Optional: Send email notification (uncomment if you want this)
+    // await sendEmailNotification(newEntry)
+
+    return NextResponse.json({ 
+      success: true,
+      message: 'Successfully added to waitlist!'
     })
-
-    console.log('Google Sheets response status:', response.status)
-    const responseText = await response.text()
-    console.log('Google Sheets response:', responseText)
-
-    if (!response.ok) {
-      throw new Error(`Failed to submit to Google Sheets: ${response.status} - ${responseText}`)
-    }
-
-    return NextResponse.json({ success: true })
   } catch (error) {
     console.error('Error submitting to waitlist:', error)
     return NextResponse.json(
@@ -55,4 +40,15 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
+}
+
+// Optional email notification function
+async function sendEmailNotification(entry: any) {
+  // You can implement email sending here using services like:
+  // - Resend (resend.com)
+  // - SendGrid
+  // - Nodemailer with Gmail
+  // - Vercel's built-in email service
+  
+  console.log('📧 Email notification would be sent for:', entry.email)
 }
