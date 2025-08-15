@@ -26,6 +26,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Send data to Google Sheets via Google Apps Script
+    console.log('Attempting to submit to Google Sheets:', GOOGLE_SCRIPT_URL)
     const response = await fetch(GOOGLE_SCRIPT_URL, {
       method: 'POST',
       headers: {
@@ -38,8 +39,12 @@ export async function POST(request: NextRequest) {
       }),
     })
 
+    console.log('Google Sheets response status:', response.status)
+    const responseText = await response.text()
+    console.log('Google Sheets response:', responseText)
+
     if (!response.ok) {
-      throw new Error('Failed to submit to Google Sheets')
+      throw new Error(`Failed to submit to Google Sheets: ${response.status} - ${responseText}`)
     }
 
     return NextResponse.json({ success: true })

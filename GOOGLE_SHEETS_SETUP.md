@@ -65,10 +65,19 @@ function doPost(e) {
 1. Click **Deploy > New deployment**
 2. Choose **Type: Web app**
 3. Set these options:
-   - Execute as: **Me**
-   - Who has access: **Anyone**
+   - Execute as: **Me (your-email@gmail.com)**
+   - Who has access: **Anyone** (This is critical!)
 4. Click **Deploy**
-5. **Copy the Web App URL** - you'll need this!
+5. **IMPORTANT**: You'll be asked to authorize the script - click **Authorize access**
+6. Sign in with your Google account and grant permissions
+7. **Copy the Web App URL** - it should look like: `https://script.google.com/macros/s/ABC123.../exec`
+
+## ⚠️ Critical Deployment Notes
+
+- **Must be deployed as "Anyone" access** - "Anyone with Google account" won't work with server-side requests
+- **You must authorize the script** during first deployment
+- **The URL must end with `/exec`** not `/dev`
+- If you update the script, you need to create a **New deployment** (not update existing)
 
 ## Step 4: Add URL to Environment Variables
 
