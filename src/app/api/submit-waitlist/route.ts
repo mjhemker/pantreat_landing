@@ -1,5 +1,12 @@
 import { NextRequest, NextResponse } from 'next/server'
 
+interface WaitlistEntry {
+  email: string
+  referralSource: string
+  timestamp: string
+  id: string
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -16,7 +23,7 @@ export async function POST(request: NextRequest) {
     const timestamp = new Date().toISOString()
 
     // Create entry
-    const newEntry = {
+    const newEntry: WaitlistEntry = {
       email,
       referralSource: referralSource || 'Not specified',
       timestamp,
@@ -43,12 +50,12 @@ export async function POST(request: NextRequest) {
 }
 
 // Optional email notification function
-async function sendEmailNotification(entry: any) {
-  // You can implement email sending here using services like:
-  // - Resend (resend.com)
-  // - SendGrid
-  // - Nodemailer with Gmail
-  // - Vercel's built-in email service
-  
-  console.log('📧 Email notification would be sent for:', entry.email)
-}
+// async function sendEmailNotification(entry: WaitlistEntry) {
+//   // You can implement email sending here using services like:
+//   // - Resend (resend.com)
+//   // - SendGrid
+//   // - Nodemailer with Gmail
+//   // - Vercel's built-in email service
+//   
+//   console.log('📧 Email notification would be sent for:', entry.email)
+// }
