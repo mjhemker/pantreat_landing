@@ -1,25 +1,25 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
+  const { ingredients, difficulty, timeNeeded } = await request.json()
+
+  if (!ingredients || ingredients.length === 0) {
+    return NextResponse.json(
+      { error: 'Ingredients are required' },
+      { status: 400 }
+    )
+  }
+
+  // Get OpenAI API key from environment variables
+  const OPENAI_API_KEY = process.env.OPENAI_API_KEY
+
+  if (!OPENAI_API_KEY) {
+    console.error('⚠️  OpenAI API key not configured')
+    // Return fallback recipes instead of erroring
+    return NextResponse.json(getFallbackRecipes(ingredients, difficulty, timeNeeded))
+  }
+
   try {
-    const { ingredients, difficulty, timeNeeded } = await request.json()
-
-    if (!ingredients || ingredients.length === 0) {
-      return NextResponse.json(
-        { error: 'Ingredients are required' },
-        { status: 400 }
-      )
-    }
-
-    // Get OpenAI API key from environment variables
-    const OPENAI_API_KEY = process.env.OPENAI_API_KEY
-
-    if (!OPENAI_API_KEY) {
-      console.error('⚠️  OpenAI API key not configured')
-      // Return fallback recipes instead of erroring
-      return NextResponse.json(await getFallbackRecipes(ingredients, difficulty, timeNeeded))
-    }
-
     console.log('🤖 Generating recipes with OpenAI for ingredients:', ingredients)
 
     const difficultyFilter = difficulty !== 'any' ? ` Make it ${difficulty} difficulty.` : ''
@@ -71,7 +71,7 @@ Make the recipes creative, practical, and focused on using the provided ingredie
       const errorText = await response.text()
       console.error('❌ OpenAI API error:', response.status, errorText)
       // Return fallback recipes instead of erroring
-      return NextResponse.json(await getFallbackRecipes(ingredients, difficulty, timeNeeded))
+      return NextResponse.json(getFallbackRecipes(ingredients, difficulty, timeNeeded))
     }
 
     const data = await response.json()
@@ -106,7 +106,7 @@ Make the recipes creative, practical, and focused on using the provided ingredie
     } catch (parseError) {
       console.error('❌ Failed to parse OpenAI response:', parseError)
       // Return fallback recipes if parsing fails
-      return NextResponse.json(await getFallbackRecipes(ingredients, difficulty, timeNeeded))
+      return NextResponse.json(getFallbackRecipes(ingredients, difficulty, timeNeeded))
     }
   } catch (error) {
     console.error('❌ Recipe generation error:', error)
@@ -142,7 +142,7 @@ Make the recipes creative, practical, and focused on using the provided ingredie
   }
 }
 
-async function getFallbackRecipes(ingredients: string[], difficulty: string, timeNeeded: string) {
+function getFallbackRecipes(ingredients: string[], difficulty: string, timeNeeded: string) {
   console.log('📝 Generating fallback recipes for:', ingredients)
   
   const fallbackRecipes = [
