@@ -1,7 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server'
 
 export async function POST(request: NextRequest) {
-  const { ingredients, difficulty, timeNeeded } = await request.json()
+  let ingredients: string[] = []
+  let difficulty: string = 'any'
+  let timeNeeded: string = 'any'
+
+  try {
+    const body = await request.json()
+    ingredients = body.ingredients || []
+    difficulty = body.difficulty || 'any'
+    timeNeeded = body.timeNeeded || 'any'
+  } catch (error) {
+    return NextResponse.json(
+      { error: 'Invalid JSON in request body' },
+      { status: 400 }
+    )
+  }
 
   if (!ingredients || ingredients.length === 0) {
     return NextResponse.json(
