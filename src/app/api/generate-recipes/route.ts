@@ -110,8 +110,35 @@ Make the recipes creative, practical, and focused on using the provided ingredie
     }
   } catch (error) {
     console.error('❌ Recipe generation error:', error)
-    // Return fallback recipes as last resort
-    return NextResponse.json(await getFallbackRecipes(ingredients, difficulty, timeNeeded))
+    // Return generic fallback recipes as last resort
+    return NextResponse.json([
+      {
+        title: 'Quick Stir-fry',
+        time: '25 minutes',
+        servings: '2 servings',
+        difficulty: 'medium',
+        ingredients: ['Mixed vegetables', 'Oil', 'Seasonings'],
+        instructions: [
+          'Heat oil in a large pan',
+          'Add ingredients and cook for 5-10 minutes',
+          'Season to taste and serve hot'
+        ],
+        tags: ['Quick', 'Easy', 'Healthy']
+      },
+      {
+        title: 'Simple Medley',
+        time: '30 minutes',
+        servings: '2-3 servings',
+        difficulty: 'easy',
+        ingredients: ['Available ingredients', 'Basic seasonings'],
+        instructions: [
+          'Prepare ingredients',
+          'Cook until tender',
+          'Season and enjoy'
+        ],
+        tags: ['Comfort Food', 'Simple']
+      }
+    ])
   }
 }
 
