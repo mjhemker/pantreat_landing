@@ -46,7 +46,7 @@ export default function HowItWorks() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: [0.55, 0.45, 0.16, 1] }
+      transition: { duration: 0.8, ease: [0.55, 0.45, 0.16, 1] as const }
     }
   }
 
