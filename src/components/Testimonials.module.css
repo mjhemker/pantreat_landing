@@ -1,0 +1,33 @@
+.tickerWrapper {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 1rem 0;
+}
+
+.ticker {
+  display: flex;
+  width: max-content;
+  animation: scrollLeft linear infinite;
+}
+
+.tickerItem {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  max-width: 400px;
+  min-width: 300px;
+}
+
+@keyframes scrollLeft {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Pause on hover */
+.ticker:hover {
+  animation-play-state: paused;
+}

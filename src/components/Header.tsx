@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { motion, useScroll } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
+import Image from 'next/image'
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -27,8 +28,8 @@ export default function Header() {
   return (
     <motion.header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/95 backdrop-blur-sm border-b border-neutral-200 py-3' 
+        isScrolled
+          ? 'glass-effect border-b border-dark py-3'
           : 'bg-transparent py-6'
       }`}
       id="site-header"
@@ -39,34 +40,42 @@ export default function Header() {
       <div className="max-w-[var(--max-width-content)] mx-auto px-4 sm:px-6 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center">
-            <motion.div 
-              className="text-2xl font-bold font-display text-primary cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={() => scrollToSection('hero')}
-            >
+          <motion.div
+            className="flex items-center space-x-3 cursor-pointer"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => scrollToSection('hero')}
+          >
+            <div className="relative w-10 h-10 rounded-xl overflow-hidden shadow-lg">
+              <Image
+                src="/assets/app_cover.png"
+                alt="Pantreat Logo"
+                fill
+                className="object-cover"
+              />
+            </div>
+            <div className="text-2xl font-bold font-display text-dark-primary">
               Pantreat
-            </motion.div>
-          </div>
+            </div>
+          </motion.div>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <button 
+            <button
               onClick={() => scrollToSection('how-it-works')}
-              className="text-neutral-600 hover:text-primary transition-colors duration-200"
+              className="text-dark-secondary hover:text-dark-primary transition-colors duration-200"
             >
               How it works
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('features')}
-              className="text-neutral-600 hover:text-primary transition-colors duration-200"
+              className="text-dark-secondary hover:text-dark-primary transition-colors duration-200"
             >
               Features
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('faq')}
-              className="text-neutral-600 hover:text-primary transition-colors duration-200"
+              className="text-dark-secondary hover:text-dark-primary transition-colors duration-200"
             >
               FAQ
             </button>
@@ -97,7 +106,7 @@ export default function Header() {
             </motion.button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-neutral-600 hover:text-primary transition-colors duration-200"
+              className="text-dark-secondary hover:text-dark-primary transition-colors duration-200"
               aria-label="Toggle menu"
               aria-expanded={isMenuOpen}
             >
@@ -116,22 +125,22 @@ export default function Header() {
           }}
           transition={{ duration: 0.3 }}
         >
-          <div className="py-4 space-y-4 border-t border-neutral-200 mt-4">
-            <button 
+          <div className="py-4 space-y-4 border-t border-dark mt-4">
+            <button
               onClick={() => scrollToSection('how-it-works')}
-              className="block text-left w-full text-neutral-600 hover:text-primary transition-colors duration-200 py-2"
+              className="block text-left w-full text-dark-secondary hover:text-dark-primary transition-colors duration-200 py-2"
             >
               How it works
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('features')}
-              className="block text-left w-full text-neutral-600 hover:text-primary transition-colors duration-200 py-2"
+              className="block text-left w-full text-dark-secondary hover:text-dark-primary transition-colors duration-200 py-2"
             >
               Features
             </button>
-            <button 
+            <button
               onClick={() => scrollToSection('faq')}
-              className="block text-left w-full text-neutral-600 hover:text-primary transition-colors duration-200 py-2"
+              className="block text-left w-full text-dark-secondary hover:text-dark-primary transition-colors duration-200 py-2"
             >
               FAQ
             </button>

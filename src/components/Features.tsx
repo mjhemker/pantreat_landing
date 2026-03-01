@@ -1,52 +1,48 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { 
-  ChefHat, 
-  Package, 
-  Filter, 
-  Users, 
-  Bot, 
-  Mic 
-} from 'lucide-react'
+import { motion, useScroll, useTransform } from 'framer-motion'
+import Image from 'next/image'
+import { useRef } from 'react'
 
 export default function Features() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+
+  const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"])
+
   const features = [
     {
-      icon: ChefHat,
-      title: "Recipe from what you have",
-      description: "Generate personalized recipes using ingredients already in your pantry.",
-      color: "from-primary/20 to-primary-dark/20"
+      title: 'Smart Recipe Matching',
+      description: 'AI-powered suggestions based on your pantry ingredients',
+      image: '/assets/featured_image_1.jpg'
     },
     {
-      icon: Package,
-      title: "Inventory + alerts",
-      description: "Track expiration dates and get smart reminders to use ingredients before they spoil.",
-      color: "from-accent/20 to-orange-500/20"
+      title: 'Waste Alerts',
+      description: 'Get notified before ingredients expire and minimize food waste',
+      image: '/assets/featured_image_2.jpg'
     },
     {
-      icon: Filter,
-      title: "Powerful filters",
-      description: "Filter recipes by time, diet, nutrition, cuisine, and cooking skill level.",
-      color: "from-blue-400/20 to-blue-600/20"
+      title: 'Custom Filters',
+      description: 'Dietary preferences, allergies, and cooking time all in one place',
+      image: '/assets/featured_image_3.jpg'
     },
     {
-      icon: Users,
-      title: "Social & gamified",
-      description: "Share meals with friends, compete on leaderboards, and earn cooking achievements.",
-      color: "from-purple-400/20 to-purple-600/20"
+      title: 'AI Cooking Guide',
+      description: 'Step-by-step voice guidance while you cook',
+      image: '/assets/featured_image_4.jpg'
     },
     {
-      icon: Bot,
-      title: "AI cooking guide",
-      description: "Get step-by-step guidance with smart timing and cooking tips from your AI assistant.",
-      color: "from-pink-400/20 to-pink-600/20"
+      title: 'Social Cooking',
+      description: 'Share recipes and compete with friends on leaderboards',
+      image: '/assets/featured_image_5.jpg'
     },
     {
-      icon: Mic,
-      title: "Hands-free voice",
-      description: "Control the app with voice commands while your hands are busy cooking.",
-      color: "from-green-400/20 to-green-600/20"
+      title: 'Savings Tracker',
+      description: 'Track money saved by reducing waste and eating at home',
+      image: '/assets/featured_image_6.jpg'
     }
   ]
 
@@ -55,141 +51,89 @@ export default function Features() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
+        staggerChildren: 0.1
       }
     }
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0 }
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.55, 0.45, 0.16, 1] }
+    }
   }
 
   return (
-    <section 
-      id="features" 
-      className="section-features py-20 px-4 sm:px-6 lg:px-8 bg-neutral-50/50 relative overflow-hidden"
+    <section
+      ref={ref}
+      id="features"
+      className="relative section-padding bg-dark overflow-hidden"
     >
-      {/* Floating Food Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <motion.img
-          src="/apple_pie.png"
+      {/* Parallax Background */}
+      <motion.div className="absolute inset-0 z-0 opacity-5" style={{ y: backgroundY }}>
+        <Image
+          src="/assets/pexels-cottonbro-4543005.jpg"
           alt=""
-          className="absolute top-20 right-16 w-44 h-44 opacity-10"
-          animate={{
-            y: [-15, 15, -15],
-            rotate: [0, 10, 0],
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
+          fill
+          className="object-cover"
         />
-        <motion.img
-          src="/kebabs.png"
-          alt=""
-          className="absolute bottom-32 left-20 w-48 h-48 opacity-12"
-          animate={{
-            x: [-10, 10, -10],
-            rotate: [-5, 5, -5],
-          }}
-          transition={{
-            duration: 6,
-            repeat: Infinity,
-            ease: "easeInOut",
-            delay: 2
-          }}
-        />
-      </div>
-      <div className="max-w-[var(--max-width-content)] mx-auto">
+      </motion.div>
+
+      <div className="relative z-10 max-w-[var(--max-width-content)] mx-auto">
         {/* Section Header */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          className="text-center mb-20"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, margin: "-100px" }}
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold font-display text-neutral-900 mb-6">
-            Everything you need to cook smarter
+          <h2 className="text-display-md text-dark-primary mb-6">
+            Powerful Features
           </h2>
-          <p className="text-xl text-neutral-600 max-w-2xl mx-auto">
-            Powerful features that transform your kitchen experience
+          <p className="text-body-lg text-dark-secondary max-w-2xl mx-auto">
+            Everything you need to transform your kitchen experience
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center md:justify-items-stretch"
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
         >
-          {features.map((feature, index) => {
-            const IconComponent = feature.icon
-            return (
-              <motion.div
-                key={index}
-                className="group relative"
-                variants={itemVariants}
-                whileHover={{ y: -8 }}
-                transition={{ duration: 0.3 }}
-              >
-                <div className="bg-white rounded-2xl p-8 shadow-sm border border-neutral-200 hover:shadow-lg transition-all duration-300 h-full">
-                  {/* Icon with gradient background */}
-                  <motion.div 
-                    className={`inline-flex items-center justify-center w-16 h-16 rounded-xl mb-6 bg-gradient-to-br ${feature.color}`}
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.2 }}
-                  >
-                    <IconComponent className="h-8 w-8 text-neutral-700" />
-                  </motion.div>
-                  
-                  {/* Content */}
-                  <h3 className="text-xl font-bold font-display text-neutral-900 mb-4 group-hover:text-primary transition-colors duration-200">
-                    {feature.title}
-                  </h3>
-                  
-                  <p className="text-neutral-600 leading-relaxed">
-                    {feature.description}
-                  </p>
-                  
-                  {/* Hover effect overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
-                </div>
-              </motion.div>
-            )
-          })}
-        </motion.div>
+          {features.map((feature, index) => (
+            <motion.div
+              key={index}
+              className="group relative overflow-hidden rounded-2xl bg-dark-secondary hover-scale cursor-pointer"
+              variants={itemVariants}
+            >
+              {/* Feature Image with Overlay */}
+              <div className="relative h-64 overflow-hidden">
+                <Image
+                  src={feature.image}
+                  alt={feature.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-dark/30 group-hover:from-dark group-hover:via-dark/85 transition-all duration-500" />
+              </div>
 
-        {/* Bottom CTA */}
-        <motion.div 
-          className="text-center mt-16"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.5 }}
-          viewport={{ once: true }}
-        >
-          <p className="text-neutral-600 mb-6">
-            Ready to experience the future of cooking?
-          </p>
-          <motion.button
-            className="bg-primary text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-primary-dark transition-all duration-200 inline-flex items-center group"
-            whileHover={{ scale: 1.05, y: -2 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => {
-              const element = document.getElementById('widgets')
-              if (element) {
-                element.scrollIntoView({ behavior: 'smooth' })
-              }
-            }}
-          >
-            Try our interactive demos
-            <ChefHat className="ml-2 h-5 w-5 transition-transform group-hover:rotate-12" />
-          </motion.button>
+              {/* Feature Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-display-sm text-dark-primary mb-2 group-hover:text-primary transition-colors duration-300">
+                  {feature.title}
+                </h3>
+                <p className="text-body-md text-white">
+                  {feature.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </motion.div>
       </div>
     </section>

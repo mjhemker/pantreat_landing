@@ -1,0 +1,252 @@
+/* Dark Minimalist Theme for Pantreat Landing Page */
+
+/* Dark Color Palette */
+:root {
+  /* Dark Backgrounds */
+  --background-dark: #0a0a0a;
+  --background-secondary: #1a1a1a;
+  --background-tertiary: #252525;
+
+  /* Text Colors */
+  --text-primary: #e7e5df;
+  --text-secondary: #a8a8a8;
+  --text-muted: #6b6b6b;
+
+  /* Orange Accent (Pantreat Brand) */
+  --accent-orange: #FF8418;
+  --accent-orange-dark: #E6730C;
+  --accent-orange-light: #FFB347;
+
+  /* Additional Accents */
+  --border-color: #2a2a2a;
+  --border-light: #3a3a3a;
+}
+
+/* Enhanced Typography Scale for Large Headlines */
+.text-display-xl {
+  font-size: clamp(48px, 8vw, 120px);
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.text-display-lg {
+  font-size: clamp(36px, 6vw, 80px);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.text-display-md {
+  font-size: clamp(28px, 4vw, 64px);
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.text-display-sm {
+  font-size: clamp(24px, 3vw, 40px);
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+/* Body Text Sizes */
+.text-body-xl {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.6;
+}
+
+.text-body-lg {
+  font-size: clamp(16px, 1.5vw, 20px);
+  line-height: 1.6;
+}
+
+.text-body-md {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.text-body-sm {
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+/* Dark Background Utility Classes */
+.bg-dark {
+  background-color: var(--background-dark);
+}
+
+.bg-dark-secondary {
+  background-color: var(--background-secondary);
+}
+
+.bg-dark-tertiary {
+  background-color: var(--background-tertiary);
+}
+
+/* Text Color Utilities */
+.text-dark-primary {
+  color: var(--text-primary);
+}
+
+.text-dark-secondary {
+  color: var(--text-secondary);
+}
+
+.text-dark-muted {
+  color: var(--text-muted);
+}
+
+/* Gradient Overlays for Images */
+.gradient-overlay-dark {
+  position: relative;
+}
+
+.gradient-overlay-dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 26, 0) 0%,
+    rgba(10, 10, 10, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+.gradient-overlay-dark-heavy {
+  position: relative;
+}
+
+.gradient-overlay-dark-heavy::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 10, 0.3) 0%,
+    rgba(10, 10, 10, 0.9) 100%
+  );
+  pointer-events: none;
+}
+
+/* Smooth Transitions */
+.transition-smooth {
+  transition: all 0.4s cubic-bezier(0.55, 0.45, 0.16, 1);
+}
+
+.transition-smooth-fast {
+  transition: all 0.3s cubic-bezier(0.55, 0.45, 0.16, 1);
+}
+
+/* Focus States for Dark Theme */
+*:focus-visible {
+  outline: 2px solid var(--accent-orange);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Minimal Borders */
+.border-dark {
+  border-color: var(--border-color);
+}
+
+.border-dark-light {
+  border-color: var(--border-light);
+}
+
+/* Glass Effect (Subtle) */
+.glass-effect {
+  background: rgba(26, 26, 26, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Section Spacing */
+.section-padding {
+  padding: clamp(4rem, 10vw, 10rem) clamp(1rem, 5vw, 4rem);
+}
+
+.section-padding-sm {
+  padding: clamp(2rem, 6vw, 6rem) clamp(1rem, 5vw, 4rem);
+}
+
+/* Hover Lift Effect */
+.hover-lift {
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Subtle Scale on Hover */
+.hover-scale {
+  transition: transform 0.4s cubic-bezier(0.55, 0.45, 0.16, 1);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+/* Large Image Containers */
+.image-container-dark {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background-secondary);
+}
+
+.image-container-dark img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+/* Parallax Container */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+}
+
+/* Disable Animations for Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .parallax-container {
+    transform: none !important;
+  }
+}
+
+/* High Contrast Support */
+@media (prefers-contrast: high) {
+  :root {
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #444444;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .section-padding {
+    padding: 3rem 1.5rem;
+  }
+
+  .section-padding-sm {
+    padding: 2rem 1.5rem;
+  }
+
+  /* Disable parallax on mobile for performance */
+  .parallax-container {
+    position: relative !important;
+    transform: none !important;
+  }
+}
