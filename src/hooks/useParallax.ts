@@ -7,10 +7,9 @@ import { useState, useEffect } from 'react';
  * Returns an offset value based on scroll position and speed multiplier
  *
  * @param speed - Parallax speed multiplier (0.5 = half scroll speed, 1.5 = faster than scroll)
- * @param direction - Scroll direction: 'vertical' or 'horizontal'
  * @returns offset value to apply as transform
  */
-export function useParallax(speed: number = 0.5, direction: 'vertical' | 'horizontal' = 'vertical') {
+export function useParallax(speed: number = 0.5) {
   const [offset, setOffset] = useState(0);
 
   useEffect(() => {

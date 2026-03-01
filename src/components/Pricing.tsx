@@ -72,11 +72,11 @@ export default function Pricing() {
             </div>
 
             <h2 className="text-display-md text-dark-primary mb-4">
-              You're on the list!
+              You&apos;re on the list!
             </h2>
 
             <p className="text-body-xl text-dark-secondary mb-8">
-              We'll notify you as soon as Pantreat is ready. Get ready to transform your kitchen!
+              We&apos;ll notify you as soon as Pantreat is ready. Get ready to transform your kitchen!
             </p>
 
             <div className="bg-dark-secondary rounded-xl p-8 border border-dark-light">
@@ -86,15 +86,15 @@ export default function Pricing() {
               <ul className="text-body-md text-dark-secondary space-y-3 text-left max-w-md mx-auto">
                 <li className="flex items-start">
                   <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                  You'll receive a confirmation email shortly
+                  You&apos;ll receive a confirmation email shortly
                 </li>
                 <li className="flex items-start">
                   <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                  Beta access will be granted in waves (you're early!)
+                  Beta access will be granted in waves (you&apos;re early!)
                 </li>
                 <li className="flex items-start">
                   <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 mr-3 flex-shrink-0" />
-                  We'll send cooking tips and updates monthly
+                  We&apos;ll send cooking tips and updates monthly
                 </li>
               </ul>
             </div>

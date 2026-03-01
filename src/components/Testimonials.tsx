@@ -52,7 +52,7 @@ export default function Testimonials() {
               className={`${styles.tickerItem} glass-effect rounded-2xl px-6 py-4 border border-dark-light`}
             >
               <p className="text-body-md text-dark-primary italic">
-                "{quote.text}"
+                &quot;{quote.text}&quot;
               </p>
               <p className="text-body-sm text-dark-secondary mt-2">
                 — {quote.author}
