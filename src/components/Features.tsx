@@ -117,13 +117,13 @@ export default function Features() {
                   src={feature.image}
                   alt={feature.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-110 z-0"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/95 to-dark/70 group-hover:from-dark group-hover:via-dark/95 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/95 to-dark/70 group-hover:from-dark group-hover:via-dark/95 transition-all duration-500 z-10" />
               </div>
 
               {/* Feature Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                 <h3 className="text-display-sm text-dark-primary mb-2 group-hover:text-primary transition-colors duration-300">
                   {feature.title}
                 </h3>
