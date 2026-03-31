@@ -117,7 +117,7 @@ export default function Features() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/80 to-dark/30 group-hover:from-dark group-hover:via-dark/85 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/90 to-dark/50 group-hover:from-dark group-hover:via-dark/95 transition-all duration-500" />
               </div>
 
               {/* Feature Content */}
