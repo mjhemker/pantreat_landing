@@ -82,7 +82,7 @@ export default function HowItWorks() {
 
         {/* Steps Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-x-12"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -91,7 +91,7 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="group"
+              className="group flex flex-col"
               variants={itemVariants}
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3 }}

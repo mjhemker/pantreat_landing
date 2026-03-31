@@ -91,7 +91,9 @@ export default function Features() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="text-display-md text-dark-primary mb-6">
-            From &quot;what should I make?&quot; to &quot;that was easy.&quot;
+            From &quot;what should I make?&quot;
+            <br />
+            to &quot;that was easy.&quot;
           </h2>
         </motion.div>
 
@@ -117,7 +119,7 @@ export default function Features() {
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/90 to-dark/50 group-hover:from-dark group-hover:via-dark/95 transition-all duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark via-dark/95 to-dark/70 group-hover:from-dark group-hover:via-dark/95 transition-all duration-500" />
               </div>
 
               {/* Feature Content */}
