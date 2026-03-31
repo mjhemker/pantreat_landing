@@ -80,6 +80,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
+        <link rel="icon" href="/assets/app_cover.png" type="image/png" sizes="any" />
+        <link rel="apple-touch-icon" href="/assets/app_cover.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

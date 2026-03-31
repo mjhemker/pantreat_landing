@@ -82,7 +82,7 @@ export default function HowItWorks() {
 
         {/* Steps Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 md:[&>*:first-child]:-mr-2"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-x-8 md:gap-y-10 md:justify-items-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -91,31 +91,33 @@ export default function HowItWorks() {
           {steps.map((step, index) => (
             <motion.div
               key={index}
-              className="group flex flex-col"
+              className="group flex w-full justify-center"
               variants={itemVariants}
               whileHover={{ y: -8 }}
               transition={{ duration: 0.3 }}
             >
-              {/* Step Number */}
-              <motion.div
-                className="text-display-sm text-primary mb-6 opacity-60"
-                initial={{ scale: 0.5 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                viewport={{ once: true }}
-              >
-                {step.number}
-              </motion.div>
+              <div className="flex w-full max-w-[20rem] flex-col items-center text-center sm:max-w-[22rem]">
+                {/* Step Number */}
+                <motion.div
+                  className="text-display-sm text-primary mb-6 opacity-60"
+                  initial={{ scale: 0.5 }}
+                  whileInView={{ scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  {step.number}
+                </motion.div>
 
-              {/* Step Title */}
-              <h3 className="text-display-sm text-dark-primary mb-4">
-                {step.title}
-              </h3>
+                {/* Step Title */}
+                <h3 className="text-display-sm text-dark-primary mb-4">
+                  {step.title}
+                </h3>
 
-              {/* Step Description */}
-              <p className="text-body-md text-dark-secondary leading-relaxed">
-                {step.description}
-              </p>
+                {/* Step Description */}
+                <p className="text-body-md text-dark-secondary leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
             </motion.div>
           ))}
         </motion.div>
