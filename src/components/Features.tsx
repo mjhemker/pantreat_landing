@@ -15,33 +15,33 @@ export default function Features() {
 
   const features = [
     {
-      title: 'Smart Recipe Matching',
-      description: 'AI-powered suggestions based on your pantry ingredients',
+      title: 'We tell you what to cook',
+      description: 'Based on what you already have.',
       image: '/assets/featured_image_1.jpg'
     },
     {
-      title: 'Waste Alerts',
-      description: 'Get notified before ingredients expire and minimize food waste',
+      title: 'Stop wasting food you forgot you had',
+      description: 'We remind you before it's too late.',
       image: '/assets/featured_image_2.jpg'
     },
     {
-      title: 'Custom Filters',
-      description: 'Dietary preferences, allergies, and cooking time all in one place',
+      title: 'Meals that fit your life',
+      description: 'Time, diet, allergies, whatever.',
       image: '/assets/featured_image_3.jpg'
     },
     {
-      title: 'AI Cooking Guide',
-      description: 'Step-by-step voice guidance while you cook',
+      title: 'Just follow along',
+      description: 'Like someone cooking with you.',
       image: '/assets/featured_image_4.jpg'
     },
     {
-      title: 'Social Cooking',
-      description: 'Share recipes and compete with friends on leaderboards',
+      title: 'See it. Save it. Make it.',
+      description: 'Turn scrolling into cooking.',
       image: '/assets/featured_image_5.jpg'
     },
     {
-      title: 'Savings Tracker',
-      description: 'Track money saved by reducing waste and eating at home',
+      title: 'Spend less without trying',
+      description: 'Cook more. Order less.',
       image: '/assets/featured_image_6.jpg'
     }
   ]
@@ -91,11 +91,8 @@ export default function Features() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="text-display-md text-dark-primary mb-6">
-            Powerful Features
+            From "what should I make?" to "that was easy."
           </h2>
-          <p className="text-body-lg text-dark-secondary max-w-2xl mx-auto">
-            Everything you need to transform your kitchen experience
-          </p>
         </motion.div>
 
         {/* Features Grid */}

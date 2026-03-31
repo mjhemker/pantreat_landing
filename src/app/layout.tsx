@@ -23,6 +23,21 @@ export const metadata: Metadata = {
   authors: [{ name: "Pantreat Team" }],
   creator: "Pantreat",
   publisher: "Pantreat",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/icon.png', sizes: '1024x1024', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '1024x1024', type: 'image/png' },
+    ],
+    other: [
+      {
+        rel: 'icon',
+        url: '/icon.png',
+      },
+    ],
+  },
   robots: {
     index: true,
     follow: true,
@@ -73,7 +88,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
-        <link rel="icon" href="/favicon.ico" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

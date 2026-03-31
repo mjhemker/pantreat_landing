@@ -87,7 +87,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5, ease: [0.55, 0.45, 0.16, 1] }}
           >
-            Pantreat turns your pantry into personalized recipes—complete with waste alerts, filters, and an AI cooking guide.
+            Why does cooking have to feel like a chore? Let's make it fun again.
           </motion.p>
 
           {/* CTA Button */}

@@ -16,18 +16,18 @@ export default function HowItWorks() {
   const steps = [
     {
       number: '01',
-      title: 'Scan Your Pantry',
-      description: 'Quick photo capture of your ingredients or manual entry - we make it effortless to digitize your kitchen.'
+      title: 'Know what you have',
+      description: 'No guessing. No duplicates.'
     },
     {
       number: '02',
-      title: 'Get Smart Suggestions',
-      description: 'Our AI analyzes what you have and suggests personalized recipes, complete with expiration alerts.'
+      title: 'We decide what to cook',
+      description: 'Based on your pantry, time, and preferences.'
     },
     {
       number: '03',
-      title: 'Cook & Save',
-      description: 'Follow guided cooking instructions, reduce waste, and track savings over time.'
+      title: 'Just follow along',
+      description: 'And we handle the rest.'
     }
   ]
 
@@ -76,11 +76,8 @@ export default function HowItWorks() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="text-display-md text-dark-primary mb-6">
-            How It Works
+            How it actually works
           </h2>
-          <p className="text-body-lg text-dark-secondary max-w-2xl mx-auto">
-            Transform your cooking in three simple steps
-          </p>
         </motion.div>
 
         {/* Steps Grid */}
