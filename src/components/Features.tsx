@@ -21,7 +21,7 @@ export default function Features() {
     },
     {
       title: 'Stop wasting food you forgot you had',
-      description: 'We remind you before it's too late.',
+      description: 'We remind you before it\'s too late.',
       image: '/assets/featured_image_2.jpg'
     },
     {
@@ -91,7 +91,7 @@ export default function Features() {
           viewport={{ once: true, margin: "-100px" }}
         >
           <h2 className="text-display-md text-dark-primary mb-6">
-            From "what should I make?" to "that was easy."
+            From &quot;what should I make?&quot; to &quot;that was easy.&quot;
           </h2>
         </motion.div>
 
