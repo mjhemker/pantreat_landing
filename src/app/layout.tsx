@@ -2,6 +2,12 @@ import type { Metadata } from "next";
 import { Inter, Poppins } from 'next/font/google';
 import "./globals.css";
 
+/** High-res PNG for Apple; tab favicon uses /favicon.ico (generated from app_cover). */
+const APPLE_TOUCH_ICON = "/assets/app_cover.png?v=3";
+
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://getpantreat.com";
+
 const inter = Inter({ 
   subsets: ['latin'],
   weight: ['400', '500', '600', '700'],
@@ -17,6 +23,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "Pantreat - Your AI Kitchen Assistant | Save Money, Reduce Food Waste",
   description: "Transform your pantry into personalized recipes with Pantreat's AI. Track inventory, prevent waste, and save up to $1,500 annually. Join the beta today!",
   keywords: ["AI cooking assistant", "recipe generator", "food waste reduction", "pantry management", "meal planning", "smart kitchen"],
@@ -24,11 +31,8 @@ export const metadata: Metadata = {
   creator: "Pantreat",
   publisher: "Pantreat",
   icons: {
-    icon: [
-      { url: '/assets/app_cover.png', type: 'image/png' },
-    ],
-    apple: [{ url: '/assets/app_cover.png', type: 'image/png' }],
-    shortcut: '/assets/app_cover.png',
+    icon: [{ url: "/favicon.ico", sizes: "any" }],
+    apple: [{ url: APPLE_TOUCH_ICON, type: "image/png" }],
   },
   robots: {
     index: true,
@@ -80,8 +84,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${poppins.variable}`}>
       <head>
-        <link rel="icon" href="/assets/app_cover.png" type="image/png" sizes="any" />
-        <link rel="apple-touch-icon" href="/assets/app_cover.png" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href={APPLE_TOUCH_ICON} />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

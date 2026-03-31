@@ -5,12 +5,6 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true
   },
-  // Browsers request /favicon.ico before HTML; point at the app icon asset.
-  async rewrites() {
-    return [
-      { source: "/favicon.ico", destination: "/assets/app_cover.png" },
-    ];
-  },
 };
 
 export default nextConfig;
