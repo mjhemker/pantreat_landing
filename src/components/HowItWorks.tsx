@@ -82,7 +82,7 @@ export default function HowItWorks() {
 
         {/* Steps Grid */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 md:[&>*:first-child]:-mr-2"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
