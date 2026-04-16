@@ -38,6 +38,12 @@ export default function Footer() {
             >
               Support
             </Link>
+            <Link
+              href="/privacy"
+              className="text-body-sm text-dark-secondary hover:text-dark-primary transition-colors"
+            >
+              Privacy Policy
+            </Link>
           </div>
 
           {/* Copyright */}
