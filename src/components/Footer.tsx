@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -25,9 +26,19 @@ export default function Footer() {
           </div>
 
           {/* Tagline */}
-          <p className="text-body-md text-dark-secondary mb-8 max-w-md mx-auto">
+          <p className="text-body-md text-dark-secondary mb-6 max-w-md mx-auto">
             Cook more. Waste less. Save money.
           </p>
+
+          {/* Links */}
+          <div className="flex justify-center space-x-6 mb-6">
+            <Link
+              href="/support"
+              className="text-body-sm text-dark-secondary hover:text-dark-primary transition-colors"
+            >
+              Support
+            </Link>
+          </div>
 
           {/* Copyright */}
           <p className="text-body-sm text-dark-muted">
