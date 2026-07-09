@@ -38,7 +38,7 @@ export default function PrivacyPolicyPage() {
               Privacy Policy
             </h1>
             <p className="text-body-lg text-dark-secondary max-w-2xl mx-auto">
-              Last updated: April 15, 2025
+              Last updated: July 9, 2026
             </p>
           </div>
 
@@ -73,7 +73,41 @@ export default function PrivacyPolicyPage() {
                 <li>Email address</li>
                 <li>Name</li>
                 <li>Account credentials</li>
+                <li>Username, profile information, and avatar photo</li>
               </ul>
+
+              <h3 className="text-body-lg font-semibold text-dark-primary mb-3">
+                Dietary and Health-Related Information
+              </h3>
+              <p className="text-body-md text-dark-secondary mb-4">
+                If you choose to provide them, we collect your food allergies and dietary restrictions so we can tailor recipes and filter out unsuitable ingredients. We treat this information as sensitive: it is used only to personalize your experience within the app and is never sold or used for advertising.
+              </p>
+
+              <h3 className="text-body-lg font-semibold text-dark-primary mb-3">
+                Nutrition Data
+              </h3>
+              <p className="text-body-md text-dark-secondary mb-4">
+                If you use Pantreat&apos;s nutrition features, we collect the meals you log, associated calorie and macronutrient information, and the nutrition goals you set.
+              </p>
+
+              <h3 className="text-body-lg font-semibold text-dark-primary mb-3">
+                Social and Activity Data
+              </h3>
+              <p className="text-body-md text-dark-secondary mb-4">
+                When you use Pantreat&apos;s social features, we collect the content you share and your activity, including:
+              </p>
+              <ul className="list-disc list-inside text-body-md text-dark-secondary mb-6 space-y-2">
+                <li>Posts and photos you share</li>
+                <li>Accounts you follow and that follow you</li>
+                <li>Cooking activity, such as recipes you cook and save</li>
+              </ul>
+
+              <h3 className="text-body-lg font-semibold text-dark-primary mb-3">
+                Subscription and Payment Data
+              </h3>
+              <p className="text-body-md text-dark-secondary mb-6">
+                Subscriptions are processed by Apple or Google and managed through RevenueCat. We never see or store your credit card number or full payment details. The app stores only your subscription tier and entitlement status so we can unlock the features you&apos;ve paid for.
+              </p>
 
               <h3 className="text-body-lg font-semibold text-dark-primary mb-3">
                 Usage Data
@@ -127,13 +161,58 @@ export default function PrivacyPolicyPage() {
                 Third-Party Services
               </h2>
               <p className="text-body-md text-dark-secondary mb-4">
-                We may use third-party services that collect information used to identify you. These services have their own privacy policies addressing how they use such information:
+                We use the following third-party service providers to operate Pantreat. Each receives only the data needed to perform its service, and each has its own privacy policy addressing how it handles that information:
               </p>
               <ul className="list-disc list-inside text-body-md text-dark-secondary space-y-2">
-                <li>Cloud storage providers for data backup</li>
-                <li>Analytics services to improve app performance</li>
-                <li>AI services for recipe generation</li>
+                <li>
+                  <span className="font-semibold text-dark-primary">Supabase</span> — hosts our backend, database, file storage, and authentication. Receives your account data and the content you create in the app.
+                </li>
+                <li>
+                  <span className="font-semibold text-dark-primary">OpenAI and Google Gemini</span> — power AI recipe generation and the Sue assistant. Receive recipe text and relevant pantry and meal context needed to respond to your requests.
+                </li>
+                <li>
+                  <span className="font-semibold text-dark-primary">Spoonacular</span> — powers recipe search. Receives your search queries and ingredient terms.
+                </li>
+                <li>
+                  <span className="font-semibold text-dark-primary">Instacart</span> — enables grocery fulfillment. Receives the shopping list items you choose to send when you shop through Instacart.
+                </li>
+                <li>
+                  <span className="font-semibold text-dark-primary">Sentry</span> — collects crash and error diagnostics (device information and error reports) so we can fix bugs and improve stability.
+                </li>
+                <li>
+                  <span className="font-semibold text-dark-primary">RevenueCat</span> — manages subscriptions. Receives purchase and entitlement information from Apple or Google; never your card number.
+                </li>
               </ul>
+            </section>
+
+            {/* AI and Automated Processing */}
+            <section>
+              <h2 className="text-display-sm font-display text-dark-primary mb-4">
+                AI and Automated Processing
+              </h2>
+              <p className="text-body-md text-dark-secondary mb-4">
+                Pantreat uses AI to make the app more helpful. The Sue assistant and our recipe recommendations use your data — such as your pantry items, dietary restrictions, allergies, nutrition goals, and cooking activity — to personalize suggestions and answer your questions.
+              </p>
+              <p className="text-body-md text-dark-secondary">
+                This processing happens to provide the features you use; we do not use it to make decisions that have legal or similarly significant effects on you.
+              </p>
+            </section>
+
+            {/* Data Retention and Deletion */}
+            <section>
+              <h2 className="text-display-sm font-display text-dark-primary mb-4">
+                Data Retention and Deletion
+              </h2>
+              <p className="text-body-md text-dark-secondary mb-4">
+                We retain your information for as long as your account is active or as needed to provide our services.
+              </p>
+              <p className="text-body-md text-dark-secondary">
+                You can delete your account at any time using the in-app Delete Account flow, which permanently removes your account, stored files, and all associated data. You can also request deletion by contacting us at{' '}
+                <a href="mailto:privacy@getpantreat.com" className="text-primary hover:text-primary-dark transition-colors">
+                  privacy@getpantreat.com
+                </a>
+                .
+              </p>
             </section>
 
             {/* Data Sharing */}
