@@ -1,0 +1,14 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["GP64RJ3BHW.com.pantreat.app"],
+        "components": [
+          { "/": "/r/*", "comment": "Shared recipe links" },
+          { "/": "/p/*", "comment": "Shared post links" }
+        ]
+      }
+    ]
+  }
+}
